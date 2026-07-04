@@ -268,7 +268,7 @@
         linear-gradient(180deg, #d5dee8, #77848f 60%, #4b545e);
       box-shadow: 0 4px 8px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.5);
     }
-    //111
+
     .item {
       min-width: 0;
       height: 100%;
@@ -908,7 +908,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 18px;
+      padding: 0;
       opacity: 0;
       pointer-events: none;
       transition: opacity .22s ease;
@@ -917,13 +917,14 @@
     .modal-backdrop.open { opacity: 1; pointer-events: auto; }
 
     .modal {
-      width: min(1420px, 100%);
-      max-height: 92vh;
+      width: 100vw;
+      height: 100vh;
+      max-height: 100vh;
       display: grid;
       grid-template-rows: auto 1fr;
       background: linear-gradient(180deg, #16212e, #0d151f);
       border: 1px solid rgba(182, 200, 220, .28);
-      border-radius: 14px;
+      border-radius: 0;
       box-shadow: 0 40px 120px rgba(0,0,0,.72), inset 0 1px 0 rgba(255,255,255,.09);
       overflow: hidden;
       transform: translateY(18px) scale(.985);
@@ -975,144 +976,7 @@
       overflow: auto;
       padding: 16px 18px 20px;
       display: grid;
-      grid-template-columns: minmax(340px, 1fr) minmax(420px, 1.2fr);
-      gap: 18px;
       align-items: start;
-    }
-
-    .modal-left { display: grid; gap: 12px; align-content: start; min-width: 0; }
-
-    .formal-details {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: rgba(0,0,0,.18);
-      overflow: hidden;
-    }
-
-    .formal-details summary {
-      cursor: pointer;
-      padding: 11px 13px;
-      color: var(--muted);
-      font-weight: 800;
-      font-size: .88rem;
-    }
-
-    .formal-details summary:hover { color: var(--cyan); }
-
-    .formal-details .modal-formal { padding: 2px 12px 12px; }
-
-    .modal-formal { display: grid; gap: 10px; align-content: start; min-width: 0; }
-
-    .modal-formal h4 {
-      margin: 2px 0 0;
-      font-size: .92rem;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .modal-formal h4 span { color: var(--muted); font-weight: 600; font-size: .8rem; }
-
-    .formal-block {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: rgba(0,0,0,.18);
-      padding: 11px 13px;
-      font-size: .86rem;
-      color: #c9d8ea;
-      line-height: 1.7;
-      overflow-wrap: anywhere;
-    }
-
-    .formal-block .frow { display: block; }
-
-    .delta-list {
-      font-family: var(--font-lcd);
-      font-size: .8rem;
-      max-height: 190px;
-      overflow: auto;
-      display: grid;
-      gap: 5px;
-      align-content: start;
-      line-height: 1.45;
-    }
-
-    .qa-list { display: grid; gap: 10px; }
-
-    .qa-item {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: rgba(255,255,255,.045);
-      padding: 11px 13px;
-    }
-
-    .qa-item .q {
-      display: flex;
-      align-items: baseline;
-      gap: 9px;
-      font-weight: 800;
-      font-size: .92rem;
-    }
-
-    .qa-badge {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 7px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, var(--cyan), #128fa0);
-      color: #04111b;
-      font-weight: 900;
-      font-size: .82rem;
-      transform: translateY(4px);
-    }
-
-    .qa-item .a {
-      margin: 7px 0 0 33px;
-      color: #c9d8ea;
-      font-size: .88rem;
-      line-height: 1.45;
-      overflow-wrap: anywhere;
-    }
-
-    .qa-why {
-      margin: 6px 0 0 33px;
-      padding: 6px 9px;
-      border-left: 3px solid rgba(25, 211, 229, .5);
-      border-radius: 0 7px 7px 0;
-      background: rgba(25, 211, 229, .06);
-      color: var(--muted);
-      font-size: .8rem;
-      line-height: 1.4;
-      overflow-wrap: anywhere;
-    }
-
-    .qa-why b { color: var(--cyan); font-weight: 800; }
-
-    .st {
-      display: inline-block;
-      padding: 1px 9px;
-      margin: 1px 1px;
-      border-radius: 999px;
-      background: rgba(25, 211, 229, .1);
-      border: 1px solid rgba(25, 211, 229, .42);
-      color: var(--cyan);
-      font-family: var(--font-lcd);
-      font-size: .78rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .st.accept {
-      background: rgba(255, 204, 77, .1);
-      border-color: rgba(255, 204, 77, .5);
-      color: var(--amber);
-    }
-
-    .st.input {
-      background: rgba(51, 209, 122, .1);
-      border-color: rgba(51, 209, 122, .45);
-      color: #7defb0;
     }
 
     .modal-viz { display: grid; gap: 12px; align-content: start; min-width: 0; }
@@ -1126,11 +990,49 @@
 
     .modal-viz h4 span { color: var(--muted); font-weight: 600; font-size: .8rem; }
 
+    .modal-graph {
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: calc(100vh - 220px);
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        #0d1520;
+      background-size: 30px 30px;
+    }
+
+    .modal-graph svg { width: 100%; height: auto; display: block; }
+
+    .product-picker {
+      display: grid;
+      gap: 6px;
+      max-width: 320px;
+    }
+
+    .product-picker label {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .78rem;
+    }
+
+    .product-picker select {
+      min-height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #101925;
+      color: var(--text);
+      padding: 0 10px;
+      font-weight: 800;
+    }
+
     .table-wrap {
       border: 1px solid var(--line);
       border-radius: 10px;
       overflow: auto;
-      max-height: 360px;
+      max-height: 280px;
       background: rgba(0,0,0,.18);
     }
 
@@ -1162,9 +1064,9 @@
       color: #c9d8ea;
       vertical-align: top;
       line-height: 1.4;
+      white-space: nowrap;
     }
 
-    .trans-table td { white-space: nowrap; }
     .trans-table td.final-cell {
       color: var(--amber);
       font-weight: 800;
@@ -1172,104 +1074,6 @@
 
     .trans-table tr:last-child td { border-bottom: 0; }
     .trans-table tbody tr:nth-child(odd) { background: rgba(255,255,255,.025); }
-
-    .trans-table .empty-row td {
-      text-align: center;
-      color: var(--muted);
-      padding: 18px 12px;
-    }
-
-    .modal-graph {
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(255,255,255,.04) 1px, transparent 1px),
-        #0d1520;
-      background-size: 30px 30px;
-    }
-
-    /* el diagrama crece a lo ancho con el recorrido y permite scroll horizontal */
-    .modal-graph { overflow-x: auto; position: relative; }
-    .modal-graph svg { height: 360px; width: auto; min-width: 100%; display: block; }
-
-    /* pista visual: si el diagrama es mas ancho que el contenedor, se ve un degradado + flecha a la derecha */
-    .modal-graph::after {
-      content: "desliza \2192";
-      position: sticky;
-      float: right;
-      top: 8px;
-      margin-right: 8px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(255, 204, 77, .16);
-      border: 1px solid rgba(255, 204, 77, .4);
-      color: var(--amber);
-      font-size: .7rem;
-      font-weight: 800;
-      pointer-events: none;
-    }
-
-    .modal-graph.fits::after { display: none; }
-
-    /* "grafo general" ocupa la pantalla completa, borde a borde, sin margen del backdrop */
-    .modal-backdrop.fullscreen { padding: 0; }
-
-    .modal.wide-general {
-      width: 100vw;
-      height: 100vh;
-      max-height: 100vh;
-      border-radius: 0;
-    }
-
-    /* en "grafo general" se prioriza el diagrama: se oculta la columna de preguntas a-g y se agranda el grafo */
-    .modal.wide-general .modal-body { grid-template-columns: 1fr; }
-    .modal.wide-general .modal-left { display: none; }
-    .modal.wide-general .table-wrap { max-height: 200px; }
-
-    /* la cadena de "Resumen general" es vertical: se ajusta al ancho del modal (sin scroll
-       horizontal) y crece hacia abajo con scroll vertical, en vez del scroll horizontal
-       que usa la escalera de "Producto + tabla" */
-    .modal.wide-general .modal-viz .modal-graph {
-      overflow-x: hidden;
-      overflow-y: auto;
-      max-height: calc(100vh - 260px);
-    }
-    .modal.wide-general .modal-viz .modal-graph svg {
-      width: 100%;
-      height: auto;
-      min-width: 0;
-    }
-    .modal.wide-general .modal-viz .modal-graph::after { display: none; }
-
-    .mode-panel {
-      display: grid;
-      grid-template-columns: minmax(220px, .45fr) 1fr;
-      gap: 10px;
-      align-items: end;
-    }
-
-    .product-picker {
-      display: grid;
-      gap: 6px;
-    }
-
-    .product-picker label {
-      color: var(--muted);
-      font-weight: 800;
-      font-size: .78rem;
-    }
-
-    .product-picker select {
-      min-height: 38px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: #101925;
-      color: var(--text);
-      padding: 0 10px;
-      font-weight: 800;
-    }
 
     .graph-head {
       display: flex;
@@ -1290,29 +1094,6 @@
       border-color: transparent;
       background: linear-gradient(135deg, var(--cyan), #128fa0);
       color: #04111b;
-    }
-
-    .mode-switch { display: flex; gap: 8px; }
-
-    .mode-btn {
-      flex: 1;
-      min-height: 38px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--muted);
-      font-weight: 800;
-      font-size: .86rem;
-      cursor: pointer;
-      transition: transform .14s ease, filter .14s ease;
-    }
-
-    .mode-btn:hover { transform: translateY(-2px); filter: brightness(1.12); }
-
-    .mode-btn.active {
-      background: linear-gradient(135deg, var(--cyan), #128fa0);
-      color: #04111b;
-      border-color: transparent;
     }
 
     /* aristas de retorno (S -> saldo restante) en el grafo general */
@@ -1522,43 +1303,23 @@
         <button class="modal-close" id="modalClose" type="button">Cerrar &times;</button>
       </div>
       <div class="modal-body">
-        <div class="modal-left">
-          <div class="qa-list" id="modalQA"></div>
-          <details class="formal-details">
-            <summary>Ver detalle formal avanzado</summary>
-            <div class="modal-formal">
-              <h4>Definicion formal de A <span>(Q, &Sigma;, q0, F, &delta;)</span></h4>
-              <div class="formal-block" id="formalDef"></div>
-              <h4>Funcion de transicion &delta; <span>(caso realizado)</span></h4>
-              <div class="formal-block delta-list" id="deltaList"></div>
-              <h4>Relacion Rm y grafo Gm</h4>
-              <div class="formal-block" id="rmBlock"></div>
-            </div>
-          </details>
-        </div>
         <div class="modal-viz">
-          <div class="mode-panel">
-            <div class="product-picker">
-              <label for="modalProduct">Producto para grafo y tabla</label>
-              <select id="modalProduct"></select>
-            </div>
-            <div class="mode-switch" id="modeSwitch" role="tablist">
-              <button class="mode-btn active" type="button" data-mode="producto">Producto + tabla</button>
-              <button class="mode-btn" type="button" data-mode="general">Resumen general</button>
-            </div>
+          <div class="product-picker">
+            <label for="modalProduct">Producto para tabla de siguiente estado</label>
+            <select id="modalProduct"></select>
           </div>
-          <h4>f. Tabla de siguiente estado para A <span>(coincide con el grafo mostrado)</span></h4>
+          <h4>Tabla de siguiente estado <span>(varia segun el precio del producto elegido)</span></h4>
           <div class="table-wrap">
             <table class="trans-table">
               <thead id="modalTableHead">
-                <tr><th>Estado actual</th><th>Entrada</th><th>Siguiente estado</th><th>Salida / accion</th></tr>
+                <tr><th>Estado / Entrada</th></tr>
               </thead>
               <tbody id="modalTableBody"></tbody>
             </table>
           </div>
           <div class="graph-head">
-            <h4 id="graphTitle">g. Diagrama de transicion para A <span>(recorrido del caso actual)</span></h4>
-            <button class="action compact-toggle-btn" id="compactToggleBtn" type="button" hidden>Vista compacta</button>
+            <h4 id="graphTitle">Diagrama de transicion: cadena compartida de los 16 productos <span>(ruta activa resaltada)</span></h4>
+            <button class="action compact-toggle-btn" id="compactToggleBtn" type="button">Vista compacta</button>
           </div>
           <div class="modal-graph">
             <svg id="modalSvg" viewBox="0 0 900 430" role="img" aria-label="Diagrama de transicion del caso actual"></svg>
@@ -1612,13 +1373,11 @@
     let flashTimer = null;
     let returnFlashTimer = null;
     let justReturned = null;
-    let modalGraphMode = "producto";
-    let modalProductCode = "B3";
-    // la cadena grande de "Resumen general" NO se redibuja con cada moneda (a diferencia de la
-    // escalera de "Producto + tabla"); solo se marca "sucia" en 3 eventos: cambiar de producto en
-    // el selector, completar una entrega, o devolver el saldo.
+    // la cadena grande NO se redibuja con cada moneda; solo se marca "sucia" al completar una
+    // entrega, al devolver el saldo, o al abrir el modal.
     let generalNeedsRedraw = true;
     let generalCompactView = false;
+    let modalProductCode = "B3";
 
     const $ = id => document.getElementById(id);
     const fmt = n => `S/ ${n.toFixed(2)}`;
@@ -2073,34 +1832,9 @@
       if (c === 0) return "q0";
       return c % 100 === 0 ? `q${c / 100}` : `q${(c / 100).toFixed(2)}`;
     };
-    const isAccept = name => /^S\d+$/.test(name);
-    const chip = (txt, cls = "") => `<span class="st${cls ? " " + cls : ""}">${txt}</span>`;
 
-    function getTransitions() {
-      const rows = [];
-      for (let i = 1; i < path.length; i++) {
-        const prev = path[i - 1];
-        const cur = path[i];
-        if (cur.output) {
-          rows.push({ from: stateName(prev), input: cur.label, to: stateName(cur), action: `Entrega ${cur.product} (estado aceptable ${stateName(cur)}) y consume ${fmt(cur.spent)}` });
-        } else if (cur.label.startsWith("+ ")) {
-          rows.push({ from: stateName(prev), input: `E: ${cur.label.slice(2)}`, to: stateName(cur), action: `Acumula saldo: ${fmt(cur.total)}` });
-        } else if (cur.label === "vuelto") {
-          rows.push({ from: stateName(prev), input: "devolver", to: "q0", action: `Devuelve ${fmt(prev.total || 0)} y regresa al estado inicial` });
-        } else if (prev.output) {
-          rows.push({ from: stateName(prev), input: cur.label, to: stateName(cur), action: cur.total > 0 ? `Conserva saldo restante ${fmt(cur.total)}` : "Sin vuelto: regresa al estado inicial q0" });
-        }
-      }
-      return rows;
-    }
-
-    function qaItem(letter, question, answer, why) {
-      return `
-        <div class="qa-item">
-          <div class="q"><span class="qa-badge">${letter}</span><span>${question}</span></div>
-          <div class="a">${answer}</div>
-          ${why ? `<div class="qa-why"><b>&iquest;Por que?</b> ${why}</div>` : ""}
-        </div>`;
+    function qFromCents(c) {
+      return c === 0 ? "q0" : `q${c}`;
     }
 
     function populateModalProductSelect() {
@@ -2118,14 +1852,9 @@
       return products.find(product => product.code === modalProductCode) || products.find(product => product.code === "B3") || products[0];
     }
 
-    function qFromCents(c) {
-      return c === 0 ? "q0" : `q${c}`;
-    }
-
-    function tableHeaders(headers) {
-      $("modalTableHead").innerHTML = `<tr>${headers.map(h => `<th>${h}</th>`).join("")}</tr>`;
-    }
-
+    // Tabla de siguiente estado: una fila por cada peldano de 10c hasta el precio del producto
+    // elegido, y una columna por cada moneda. Se recalcula por completo segun el precio, asi que
+    // sirve para cualquier producto del catalogo.
     function productTransitionCell(fromCents, coin, priceCents) {
       const next = fromCents + cents(coin.value);
       if (next >= priceCents) {
@@ -2155,7 +1884,7 @@
     }
 
     function renderProductTable(product) {
-      tableHeaders(["Estado / Entrada", ...coins.map(coin => coin.label)]);
+      $("modalTableHead").innerHTML = `<tr><th>Estado / Entrada</th>${coins.map(coin => `<th>${coin.label}</th>`).join("")}</tr>`;
       const rows = productTableRows(product);
       $("modalTableBody").innerHTML = rows.map(row => `
         <tr>
@@ -2163,208 +1892,6 @@
           ${row.cells.map(cell => `<td class="${cell.final ? "final-cell" : ""}">${cell.text}</td>`).join("")}
         </tr>
       `).join("");
-    }
-
-    // Modelo de ALCANZABILIDAD: la escalera COMPLETA de 10 en 10 hasta el precio (sin recortes),
-    // mas un atajo directo desde q0 por cada moneda mayor a 10c. Asi se ve el camino exacto de
-    // cualquier combinacion (10+20+50+... hasta completar) y tambien el pago con una sola moneda grande.
-    function buildReachabilityModel(product) {
-      const priceCents = cents(product.price);
-      const coinCents = [...new Set(coins.map(c => cents(c.value)))].sort((a, b) => a - b);
-      const order = [];
-      for (let v = 0; v < priceCents; v += 10) order.push(v);
-
-      const edges = [];
-      // escalera principal: cada peldano avanza 10c al siguiente (o entrega, en el ultimo peldano)
-      order.forEach(v => {
-        const next = v + 10;
-        if (next >= priceCents) edges.push({ from: v, coin: 10, accept: true, change: next - priceCents, ladder: true });
-        else edges.push({ from: v, coin: 10, to: next, ladder: true });
-      });
-      // atajos desde q0: pagar con una sola moneda mayor, sin pasar por todos los peldanos
-      coinCents.filter(c => c > 10).forEach(c => {
-        if (c >= priceCents) edges.push({ from: 0, coin: c, accept: true, change: c - priceCents, ladder: false });
-        else if (order.includes(c)) edges.push({ from: 0, coin: c, to: c, ladder: false });
-      });
-
-      return { priceCents, order, edges };
-    }
-
-    function coinLabelFor(c) {
-      const match = coins.find(coin => cents(coin.value) === c);
-      return match ? match.label : fmt(money(c));
-    }
-
-    // Dibuja la escalera de 10 en 10 en una sola fila (como el diagrama de referencia), con los
-    // atajos de monedas grandes como arcos por encima de la fila, saliendo siempre de q0.
-    function renderProductGraph(svg, product) {
-      const model = buildReachabilityModel(product);
-      const { order, edges } = model;
-
-      const colW = 94;
-      const r = 23;
-      const left = 74;
-      const rowY = 220;
-      const acceptX = left + order.length * colW + 90;
-
-      const ladderAccept = edges.find(e => e.ladder && e.accept);
-      const shortcuts = edges.filter(e => !e.ladder);
-      const shortcutAccepts = shortcuts.filter(e => e.accept);
-      const changeAmounts = [...new Set([...(ladderAccept ? [ladderAccept.change] : []), ...shortcutAccepts.map(e => e.change)])];
-      const nonZeroChange = changeAmounts.filter(c => c > 0).sort((a, b) => a - b);
-      const changeX = acceptX + 200;
-      const w = nonZeroChange.length ? changeX + 190 : acceptX + 220;
-      const h = 480;
-      let realArcIndex = 0;
-      svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-
-      const pos = new Map();
-      order.forEach((v, i) => pos.set(v, { x: left + i * colW, y: rowY, v }));
-      const accept = { x: acceptX, y: rowY };
-      const changePositions = new Map();
-      nonZeroChange.forEach((c, i) => changePositions.set(c, { x: changeX, y: 96 + i * 78, c }));
-
-      let step = 0;
-      const delay = () => `style="animation-delay:${step++ * 25}ms"`;
-
-      let html = `
-        <defs>
-          <marker id="arrowProduct" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L0,6 L8,3 z" fill="#19d3e5"></path>
-          </marker>
-          <marker id="arrowProductReturn" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L0,6 L8,3 z" fill="#ffcc4d"></path>
-          </marker>
-        </defs>
-        <text class="g-note strong build-step" ${delay()} x="${left}" y="30">Producto objetivo: ${product.code} - ${product.name} | Precio ${fmt(product.price)}</text>
-        <text class="g-note build-step" ${delay()} x="${left}" y="50">Escalera de 10 en 10 hasta el precio (linea principal); arcos arriba: pagar con una sola moneda mayor.</text>
-      `;
-
-      const q0pos = pos.get(0);
-      html += `<path class="g-edge active build-step" ${delay()} d="M${q0pos.x - 50} ${q0pos.y} L${q0pos.x - r - 6} ${q0pos.y}" marker-end="url(#arrowProduct)"></path>`;
-      html += `<text class="g-label dim build-step" ${delay()} x="${q0pos.x - 50}" y="${q0pos.y - 14}">inicio</text>`;
-
-      // escalera principal (10c cada paso). Una sola etiqueta general arriba, no una por peldano,
-      // para que 20+ pasos consecutivos no repitan el mismo texto uno junto al otro.
-      edges.filter(e => e.ladder && !e.accept).forEach(e => {
-        const a = pos.get(e.from);
-        const b = pos.get(e.to);
-        html += `<path class="g-edge active build-step" ${delay()} d="M${a.x + r} ${a.y} L${b.x - r} ${b.y}" marker-end="url(#arrowProduct)"></path>`;
-      });
-      if (order.length > 1) {
-        html += `<text class="g-label dim build-step" ${delay()} x="${left + 30}" y="${rowY - 34}" text-anchor="start">cada paso: +10 c</text>`;
-      }
-
-      // ultimo peldano de la escalera hacia S (si el precio se alcanza sumando de 10 en 10)
-      if (ladderAccept) {
-        const a = pos.get(ladderAccept.from);
-        html += `<path class="g-edge product build-step" ${delay()} d="M${a.x + r} ${a.y} L${accept.x - r - 8} ${accept.y}" marker-end="url(#arrowProductReturn)"></path>`;
-        const label = ladderAccept.change > 0 ? "10 c*" : "10 c";
-        html += `<text class="g-label build-step" ${delay()} x="${(a.x + accept.x) / 2}" y="${rowY - 16}" text-anchor="middle">${label}</text>`;
-      }
-
-      // atajos desde q0 (monedas mayores a 10c): arcos por encima, etiqueta junto a su propio destino.
-      // Las que van directo a S se apilan en una columna fija (lejos del texto superior y entre si).
-      const acceptStackTop = 96;
-      let acceptStackIndex = 0;
-      shortcuts.forEach(e => {
-        if (e.accept) {
-          const labelY = acceptStackTop + acceptStackIndex * 20;
-          acceptStackIndex++;
-          html += `<path class="g-edge product build-step" ${delay()} d="M${q0pos.x + 8} ${q0pos.y - r} C${q0pos.x + 40} ${labelY + 10}, ${accept.x - 60} ${labelY + 10}, ${accept.x - 4} ${accept.y - r - 4}" marker-end="url(#arrowProductReturn)"></path>`;
-          const label = e.change > 0 ? `${coinLabelFor(e.coin)}*` : coinLabelFor(e.coin);
-          html += `<text class="g-label build-step" ${delay()} x="${(q0pos.x + accept.x) / 2}" y="${labelY}" text-anchor="middle">${label}</text>`;
-        } else {
-          const b = pos.get(e.to);
-          const apex = rowY - 60 - Math.min(120, (b.x - q0pos.x) / 4);
-          html += `<path class="g-edge active build-step" ${delay()} d="M${q0pos.x + 6} ${q0pos.y - r} C${q0pos.x + 20} ${apex}, ${b.x - 20} ${apex}, ${b.x - 4} ${b.y - r - 4}" marker-end="url(#arrowProduct)"></path>`;
-          html += `<text class="g-label build-step" ${delay()} x="${b.x}" y="${apex - 8}" text-anchor="middle">${coinLabelFor(e.coin)}</text>`;
-        }
-      });
-      if (shortcutAccepts.some(e => e.change > 0)) {
-        html += `<text class="g-note build-step" ${delay()} x="${(q0pos.x + accept.x) / 2}" y="${acceptStackTop - 18}" text-anchor="middle">* con vuelto</text>`;
-      }
-
-      // retorno de S: si no hubo vuelto va directo a q0; si hubo vuelto va al estado de saldo restante
-      if (changeAmounts.includes(0)) {
-        html += `<path class="g-edge return build-step" ${delay()} d="M${accept.x} ${accept.y + r + 4} C${accept.x - 130} ${accept.y + 150}, ${q0pos.x + 130} ${q0pos.y + 150}, ${q0pos.x + r} ${q0pos.y + 14}" marker-end="url(#arrowProductReturn)"></path>`;
-        html += `<text class="g-label build-step" ${delay()} x="${(accept.x + q0pos.x) / 2}" y="${h - 30}" text-anchor="middle">saldo exacto / q0</text>`;
-      }
-      nonZeroChange.forEach(c => {
-        const cp = changePositions.get(c);
-        html += `<path class="g-edge return build-step" ${delay()} d="M${accept.x + r} ${accept.y} C${accept.x + 90} ${accept.y}, ${cp.x - 90} ${cp.y}, ${cp.x - r - 6} ${cp.y}" marker-end="url(#arrowProductReturn)"></path>`;
-        html += `<text class="g-label build-step" ${delay()} x="${(accept.x + cp.x) / 2}" y="${cp.y - 12}" text-anchor="middle">vuelto ${fmt(money(c))}</text>`;
-      });
-
-      // ===== ruta REAL resaltada: se actualiza con cada moneda insertada; vuelve a la vista
-      // teorica al devolver o si aun no hay actividad para este producto (mismo criterio que
-      // la cadena grande de "Resumen general", via la misma funcion computeGeneralHighlight) =====
-      const hl = computeGeneralHighlight(product);
-      const realSteps = hl.theoretical ? [] : hl.steps.filter(s => pos.has(s.cents));
-      const highlightedNodes = new Set(realSteps.map(s => s.cents));
-
-      // Siempre en cian (.g-edge.active), igual que en la cadena grande, para no confundirse
-      // con los atajos teoricos tenues (ambar). Solo un salto real de exactamente 10c va recto
-      // sobre la escalera; cualquier otro (moneda mayor o sobrepago) se dibuja como arco, para
-      // no atravesar visualmente peldanos que en realidad no se visitaron.
-      for (let i = 0; i < realSteps.length - 1; i++) {
-        const a = pos.get(realSteps[i].cents);
-        const b = pos.get(realSteps[i + 1].cents);
-        const label = realSteps[i + 1].coinLabel || "10 c";
-        if (b.x - a.x <= colW + 2) {
-          // paso consecutivo de 10c: curva suave por debajo de la escalera (en vez de una
-          // linea recta) para que tambien se vea como un tramo de recorrido con direccion
-          const bulge = rowY + 46;
-          html += `<path class="g-edge active build-step" d="M${a.x + r} ${a.y} C${a.x + colW * 0.25} ${bulge}, ${b.x - colW * 0.25} ${bulge}, ${b.x - r} ${b.y}" marker-end="url(#arrowProduct)"></path>`;
-        } else {
-          // bucle bien visible por debajo de la fila (no una curva sutil que roce los
-          // peldanos intermedios que en realidad no se visitaron). Se acota y se escalona
-          // para que varios saltos grandes en el mismo recorrido no se apilen uno sobre otro.
-          const apex = rowY + 90 + (realArcIndex % 3) * 45;
-          realArcIndex++;
-          html += `<path class="g-edge active build-step" d="M${a.x} ${a.y + r} C${a.x} ${apex}, ${b.x} ${apex}, ${b.x} ${b.y + r}" marker-end="url(#arrowProduct)"></path>`;
-          html += `<text class="g-label build-step" x="${(a.x + b.x) / 2}" y="${apex + 16}" text-anchor="middle">${label}</text>`;
-        }
-      }
-
-      // si la compra real fue de ESTE producto, se resalta tambien la llegada a S
-      if (hl.targetCode === product.code && realSteps.length) {
-        const origin = pos.get(realSteps[realSteps.length - 1].cents);
-        if (origin) {
-          html += `<path class="g-edge product build-step" d="M${origin.x + r * 0.6} ${origin.y - r * 0.6} C${origin.x + 40} ${accept.y - 60}, ${accept.x - 40} ${accept.y - 60}, ${accept.x - 4} ${accept.y - r - 4}" marker-end="url(#arrowProductReturn)"></path>`;
-          html += `<text class="g-note build-step" x="${accept.x + 40}" y="${accept.y}" text-anchor="start">comprado</text>`;
-        }
-      }
-
-      order.forEach(v => {
-        const p = pos.get(v);
-        const isHi = highlightedNodes.has(v);
-        html += `
-          <g class="g-node ${v === 0 || isHi ? "active" : "done"} build-step" ${delay()} transform="translate(${p.x} ${p.y})">
-            <circle r="${r}"></circle>
-            <text y="-3" style="font-size:12px">${qFromCents(v)}</text>
-            <text class="g-note" y="12" text-anchor="middle" style="font-size:9px">${fmt(money(v)).replace("S/ ", "S/")}</text>
-          </g>`;
-      });
-
-      html += `
-        <g class="g-node output active build-step" ${delay()} transform="translate(${accept.x} ${accept.y})">
-          <circle r="${r + 4}"></circle>
-          <circle class="inner" r="${r - 2}"></circle>
-          <text y="-4">S</text>
-          <text class="g-note" y="14" text-anchor="middle">${product.name}</text>
-        </g>`;
-
-      changePositions.forEach((p, c) => {
-        html += `
-          <g class="g-node done build-step" ${delay()} transform="translate(${p.x} ${p.y})">
-            <circle r="${r - 2}"></circle>
-            <text y="-4">${qFromCents(c)}</text>
-            <text class="g-note" y="13" text-anchor="middle">vuelto</text>
-          </g>`;
-      });
-
-      svg.innerHTML = html;
     }
 
     // Modelo del grafo general: UNA sola cadena compartida de saldo (0, 10, 20... de 10 en 10)
@@ -2401,9 +1928,9 @@
 
     // Calcula que parte de la cadena resaltar: si hubo actividad REAL (monedas insertadas en la
     // maquina desde la ultima compra o devolucion), resalta ese recorrido real y, si termino en
-    // una compra, tambien la rama de ese producto. Si no hay actividad real, resalta la rama
-    // TEORICA del producto elegido en el selector, como vista previa.
-    function computeGeneralHighlight(dropdownProduct) {
+    // una compra, tambien la rama de ese producto. Si no hay ninguna moneda insertada todavia,
+    // no hay nada que resaltar (steps vacio): la maquina sigue en q0.
+    function computeGeneralHighlight() {
       // fases: cada fase empieza justo despues de una entrega (en su entrada "saldo X") o en
       // la propia devolucion (que ya deja total en 0). path[0] siempre es el inicio de la fase 0.
       const phaseStarts = [{ idx: 0, viaOutput: false }];
@@ -2422,32 +1949,39 @@
       const segment = path.slice(startIdx);
 
       // si lo ultimo que paso fue una devolucion y no hay nada despues, ya no hay actividad
-      // real pendiente: vuelve a la vista previa teorica del selector
+      // real pendiente
       const justReturned = segment.length === 1 && segment[0].label === "vuelto";
       const hasRealActivity = path.length > 1 && !justReturned;
 
-      if (hasRealActivity) {
-        const purchaseStep = segment.find(s => s.output);
-        const purchasedProduct = purchaseStep ? products.find(p => p.code === purchaseStep.code) : null;
-        // el ultimo deposito real (el que alcanza o supera el precio) SI se incluye: es el
-        // nodo desde donde debe salir la flecha de entrega hacia el producto. Se corta justo
-        // despues, para no seguir de largo por el resto de la cadena tras la compra.
-        const priceLimit = purchasedProduct ? cents(purchasedProduct.price) : Infinity;
-        const steps = [];
-        for (let i = 0; i < segment.length; i++) {
-          const step = segment[i];
-          if (step.output) break;
-          const coinLabel = i === 0 ? null : step.label.replace("+ ", "");
-          steps.push({ cents: cents(step.total), coinLabel });
-          if (cents(step.total) >= priceLimit) break;
-        }
-        return { steps, targetCode: purchaseStep ? purchaseStep.code : null, theoretical: false };
+      if (!hasRealActivity) {
+        // nada insertado (o recien devuelto): la maquina esta en q0, no hay ruta que marcar
+        return { steps: [], targetCode: null, changeAfter: 0 };
       }
 
-      const priceCents = cents(dropdownProduct.price);
+      const purchaseStep = segment.find(s => s.output);
+      const purchasedProduct = purchaseStep ? products.find(p => p.code === purchaseStep.code) : null;
+      // el ultimo deposito real (el que alcanza o supera el precio) SI se incluye: es el
+      // nodo desde donde debe salir la flecha de entrega hacia el producto. Se corta justo
+      // despues, para no seguir de largo por el resto de la cadena tras la compra.
+      const priceLimit = purchasedProduct ? cents(purchasedProduct.price) : Infinity;
       const steps = [];
-      for (let v = 0; v <= priceCents - 10; v += 10) steps.push({ cents: v, coinLabel: v === 0 ? null : "10 c" });
-      return { steps, targetCode: dropdownProduct.code, theoretical: true };
+      for (let i = 0; i < segment.length; i++) {
+        const step = segment[i];
+        if (step.output) break;
+        const coinLabel = i === 0 ? null : step.label.replace("+ ", "");
+        steps.push({ cents: cents(step.total), coinLabel });
+        if (cents(step.total) >= priceLimit) break;
+      }
+
+      // vuelto: si hubo entrega, el paso siguiente del recorrido ("saldo X") ya trae el cambio
+      // exacto que sobro, sin importar el producto ni la combinacion de monedas usada para pagar
+      let changeAfter = 0;
+      if (purchaseStep) {
+        const next = segment[segment.indexOf(purchaseStep) + 1];
+        changeAfter = next ? cents(next.total) : 0;
+      }
+
+      return { steps, targetCode: purchaseStep ? purchaseStep.code : null, changeAfter };
     }
 
     // Dibuja la cadena unica compartida por los 16 productos (estilo escalera, izquierda a
@@ -2455,7 +1989,7 @@
     // (real si hay monedas insertadas, teorica del selector si la maquina esta en q0).
     // Cadena VERTICAL: el saldo crece hacia abajo (S/0.00 arriba -> S/5.00 al final del scroll).
     // Las ramas de entrega de cada producto salen hacia la derecha de su peldano de origen.
-    function renderGeneralGraph(svg, model, dropdownProduct, compact) {
+    function renderGeneralGraph(svg, model, compact) {
       const { order, branchesByFrom, shortcuts } = model;
       // "vista compacta": mismo diseno, con nodos y espaciado mas chicos para que quepa mas
       // cadena en pantalla; el texto reduce un poco pero se mantiene legible (no baja de 9px)
@@ -2481,7 +2015,8 @@
       });
 
       const maxBranchStack = Math.max(1, ...[...branchesByFrom.values()].map(p => p.length));
-      const w = chainX + branchGapX + maxBranchStack * branchStepX + 40;
+      // + branchStepX extra: deja espacio para el nodo de "vuelto" cuando la compra se paga de mas
+      const w = chainX + branchGapX + maxBranchStack * branchStepX + branchStepX + 40;
       const h = top + order.length * rowH + 90;
       svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
 
@@ -2497,10 +2032,10 @@
       `;
 
       // ===== textos superiores (ruta activa) =====
-      const hl = computeGeneralHighlight(dropdownProduct);
-      const kickerText = hl.theoretical
-        ? `Vista previa: ruta teorica de ${dropdownProduct.code} - ${dropdownProduct.name} (aun no hay monedas insertadas)`
-        : `Ruta en vivo de tu compra real (se actualiza al cambiar de producto, entregar o devolver)`;
+      const hl = computeGeneralHighlight();
+      const kickerText = hl.steps.length
+        ? `Ruta en vivo de tu compra real (se actualiza al completar o devolver)`
+        : `Sin actividad: inserte monedas y seleccione un producto para ver su recorrido`;
       html += `<text class="g-note strong" x="40" y="30">${kickerText}</text>`;
       html += `<text class="g-note" x="40" y="50">Cadena vertical: cada peldano baja +10 c. Fondo tenue: los 16 productos siempre visibles; resaltado: la ruta activa.</text>`;
 
@@ -2600,6 +2135,7 @@
       });
 
       // rama de entrega de la ruta activa, resaltada por encima del fondo tenue
+      let changePos = null;
       if (hl.targetCode) {
         const bp = branchPos.get(hl.targetCode);
         if (bp) {
@@ -2610,171 +2146,54 @@
               <text y="-4" style="font-size:${nodeFont}px">${fmt(bp.product.price)}</text>
               <text class="g-note" y="14" text-anchor="middle" style="font-size:${subFont + 2}px">${bp.product.name}</text>
             </g>`;
+
+          // vuelto (sobrepago): funciona para cualquier producto y cualquier combinacion de
+          // monedas, porque el monto ya viene calculado en hl.changeAfter (lo que sobro tras
+          // pagar). Se dibuja como una rama extra saliendo de la entrega, hacia la derecha.
+          if (hl.changeAfter > 0) {
+            changePos = { x: bp.x + branchStepX, y: bp.y };
+            html += `<path class="g-edge return" d="M${bp.x + r + 5} ${bp.y} C${bp.x + 60} ${changePos.y}, ${changePos.x - 60} ${changePos.y}, ${changePos.x - r - 4} ${changePos.y}" marker-end="url(#arrowReturn)"></path>`;
+            html += `
+              <g class="g-node done" transform="translate(${changePos.x} ${changePos.y})">
+                <circle r="${r - 2}"></circle>
+                <text y="-4" style="font-size:${nodeFont}px">${fmt(money(hl.changeAfter))}</text>
+                <text class="g-note" y="13" text-anchor="middle" style="font-size:${subFont}px">vuelto</text>
+              </g>`;
+          }
         }
       }
 
       svg.innerHTML = html;
     }
 
-    function setModalMode(mode) {
-      modalGraphMode = mode;
-      // abrir/entrar a "Resumen general" siempre muestra datos frescos, aunque no haya
-      // ocurrido ninguno de sus 3 disparadores todavia
-      if (mode === "general") generalNeedsRedraw = true;
-      document.querySelectorAll(".mode-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.mode === mode);
-      });
-      buildResults();
-    }
-
     function buildResults() {
-      const noData = "Aun no se ha generado este dato; realice una compra o ingrese una moneda.";
-      const trans = getTransitions();
       const generalModel = buildGeneralModel();
-      const hasDelivery = path.some(step => step.output);
       const product = selectedModalProduct();
 
-      // Q: estados visitados en el recorrido actual (cada q representa un saldo acumulado)
-      const visited = [];
-      path.forEach(step => {
-        const name = stateName(step);
-        if (!visited.includes(name)) visited.push(name);
-      });
+      $("modalKicker").textContent = `Cadena unica compartida: ${products.length} productos | hasta ${fmt(money(generalModel.maxCents))}`;
 
-      // Sigma: monedas usadas, codigos de producto y devolucion si aplica
-      const inputs = [];
-      path.forEach(step => {
-        let input = null;
-        if (step.output) input = step.code;
-        else if (step.label.startsWith("+ ")) input = `E: ${step.label.slice(2)}`;
-        else if (step.label === "vuelto") input = "devolver";
-        if (input && !inputs.includes(input)) inputs.push(input);
-      });
-      if (chosen && !inputs.includes(chosen.code)) inputs.push(chosen.code);
-
-      const stateChips = visited.map(name => chip(name, isAccept(name) ? "accept" : "")).join(" ");
-      const inputChips = inputs.map(input => chip(input, "input")).join(" ");
-
-      // F: un estado aceptable numerado por cada entrega (S1, S2, ...)
-      const acceptSteps = path.filter(step => step.output);
-      const acceptChips = acceptSteps.map(step => chip(stateName(step), "accept")).join(" ");
-      const acceptMap = acceptSteps.map(step => `${chip(stateName(step), "accept")} = entrega ${step.product}`).join(", ");
-
-      const whyStates = visited.length === 1
-        ? "Solo se ha visitado q0: cada moneda creara un estado nuevo con el saldo acumulado."
-        : "Cada estado q guarda el saldo acumulado; la maquina cambia de estado con cada moneda.";
-      const whyInputs = inputs.length
-        ? "Son las entradas recibidas: monedas (entrada E), codigos de producto y la orden devolver."
-        : "Aun no hay entradas; inserte una moneda o escriba un codigo.";
-      const whyAccept = hasDelivery
-        ? `Porque cada ${chip("Si", "accept")} es un estado donde la maquina entrego un producto y acepto el pago: ${acceptMap}.`
-        : "Aun no se entrega producto: S1 aparecera cuando el saldo cubra el precio de un codigo.";
-
-      let aDelta = noData;
-      let whyDelta = "";
-      if (trans.length) {
-        const last = trans[trans.length - 1];
-        aDelta = `N(${chip(last.from, isAccept(last.from) ? "accept" : "")}, ${chip(last.input, "input")}) = ${chip(last.to, isAccept(last.to) ? "accept" : "")}`;
-        whyDelta = `${last.action}.`;
-      }
-
-      $("modalQA").innerHTML = [
-        qaItem("a", "&iquest;Cuales son los estados de A?", `Q = { ${stateChips} }`, whyStates),
-        qaItem("b", "&iquest;Cuales son los simbolos de entrada de A?", `&Sigma; = { ${inputChips} }`, whyInputs),
-        qaItem("c", "&iquest;Cual es el estado inicial de A?", `q0 = ${chip("q0")} (saldo S/ 0.00)`, "La maquina siempre arranca sin dinero y regresa a q0 tras devolver o pagar con saldo exacto."),
-        qaItem("d", "&iquest;Cuales son los estados aceptables de A?", `F = { ${hasDelivery ? acceptChips : ""} }`, whyAccept),
-        qaItem("e", "Determine N(estado, entrada) usando el ultimo movimiento.", aDelta, whyDelta),
-        qaItem("f", "Construya la tabla de siguiente estado para A.", trans.length ? `Ver tabla en el panel derecho (${trans.length} transiciones).` : noData, "Cada fila aplica &delta;(estado, entrada) = siguiente estado, con su salida o accion sobre el dinero."),
-        qaItem("g", "Dibuje el diagrama de transicion para A.", "Ver diagrama Gm en el panel derecho.", `${chip("q0")} lleva flecha inicial, los estados de saldo circulo simple y los aceptables ${chip("S1", "accept")}, ${chip("S2", "accept")}... doble circulo; el saldo restante forma un nuevo estado q.`)
-      ].join("");
-
-      // ambas pestanas usan la misma tabla exhaustiva de siguiente estado, segun el producto elegido
       renderProductTable(product);
 
-      // Definicion formal: Q, Sigma, q0, F, delta
-      $("formalDef").innerHTML = `
-        <span class="frow">Q = { ${stateChips} }</span>
-        <span class="frow">&Sigma; = { ${inputs.length ? inputChips : ""} }</span>
-        <span class="frow">q0 = ${chip("q0")} (estado inicial, saldo S/ 0.00)</span>
-        <span class="frow">F = { ${hasDelivery ? acceptChips : ""} }</span>
-        <span class="frow">&delta;: Q &times; &Sigma; &rarr; Q (funcion de transicion de A)</span>`;
-
-      // Funcion delta aplicada al recorrido real
-      $("deltaList").innerHTML = trans.length
-        ? trans.map(row => `<div>&delta;(${row.from}, ${row.input}) = ${row.to}</div>`).join("")
-        : `<div>Aun no hay transiciones: la maquina permanece en q0. Ingrese una moneda o realice una compra.</div>`;
-
-      // Relacion Rm (pares de estados) y grafo Gm = (Q, Rm)
-      const rmPairs = [];
-      trans.forEach(row => {
-        const pair = `(${row.from}, ${row.to})`;
-        if (!rmPairs.includes(pair)) rmPairs.push(pair);
-      });
-      $("rmBlock").innerHTML = trans.length
-        ? `<span class="frow">Rm = { ${rmPairs.join(", ")} }</span>
-           <span class="frow">Gm = (Q, Rm): grafo dirigido etiquetado asociado a la maquina; es el diagrama de transicion del panel derecho, con las aristas etiquetadas por los simbolos de &Sigma;.</span>`
-        : `<span class="frow">Rm = { } y Gm = (Q, Rm) contiene solo el nodo ${chip("q0")}. Aun no hay transiciones registradas.</span>`;
-
-      $("modalKicker").textContent =
-        modalGraphMode === "producto"
-          ? `Producto enfocado: ${product.code} ${product.name} | precio ${fmt(product.price)} | 6 monedas como entradas`
-          : `Cadena unica compartida: ${products.length} productos | hasta ${fmt(money(generalModel.maxCents))}`;
-
-      document.querySelector("#graphTitle span").textContent =
-        modalGraphMode === "producto"
-          ? "(producto enfocado con 6 monedas, final y vuelto)"
-          : "(cadena compartida de los 16 productos, con ruta activa resaltada)";
-
-      const isGeneral = modalGraphMode === "general";
-      $("resultsModal").classList.toggle("fullscreen", isGeneral);
-      $("resultsModal").querySelector(".modal").classList.toggle("wide-general", isGeneral);
-
-      $("compactToggleBtn").hidden = !isGeneral;
       $("compactToggleBtn").classList.toggle("active", generalCompactView);
       $("compactToggleBtn").textContent = generalCompactView ? "Vista detallada" : "Vista compacta";
 
-      if (modalGraphMode === "producto") {
-        // la escalera de un solo producto SI se redibuja con cada moneda (sin cambios aqui)
-        renderProductGraph($("modalSvg"), product);
-      } else if (generalNeedsRedraw) {
-        // la cadena grande solo se redibuja cuando cambia el producto, se entrega o se devuelve
-        renderGeneralGraph($("modalSvg"), generalModel, product, generalCompactView);
+      if (generalNeedsRedraw) {
+        renderGeneralGraph($("modalSvg"), generalModel, generalCompactView);
         generalNeedsRedraw = false;
       }
-
-      updateGraphFitsHint();
     }
 
-    // muestra el aviso "desliza ->" solo si el diagrama realmente necesita scroll horizontal
-    function updateGraphFitsHint() {
-      requestAnimationFrame(() => {
-        const wrap = document.querySelector(".modal-graph");
-        if (!wrap) return;
-        wrap.classList.toggle("fits", wrap.scrollWidth <= wrap.clientWidth + 4);
-      });
-    }
-
-    function openResults(mode) {
+    function openResults() {
       populateModalProductSelect();
       generalNeedsRedraw = true;
-      if (mode) setModalModeSilently(mode);
       buildResults();
       const modal = $("resultsModal");
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
-      updateGraphFitsHint();
     }
 
-    function setModalModeSilently(mode) {
-      modalGraphMode = mode;
-      document.querySelectorAll(".mode-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.mode === mode);
-      });
-    }
-
-    // boton dedicado: abre el modal directo en la pestana "Resumen general", ampliado a pantalla casi completa
     function openGeneralGraph() {
-      openResults("general");
+      openResults();
     }
 
     function closeResults() {
@@ -2793,13 +2212,9 @@
     $("modalClose").addEventListener("click", closeResults);
     $("resultsModal").addEventListener("click", e => { if (e.target === $("resultsModal")) closeResults(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeResults(); });
-    window.addEventListener("resize", updateGraphFitsHint);
-    document.querySelectorAll(".mode-btn").forEach(btn => btn.addEventListener("click", () => setModalMode(btn.dataset.mode)));
     $("modalProduct").addEventListener("change", e => {
       modalProductCode = e.target.value;
-      // si ya se esta viendo el "Resumen general", solo se actualiza la ruta resaltada en vivo;
-      // en cualquier otra pestana, elegir producto lleva a "Producto + tabla" como antes
-      setModalMode(modalGraphMode === "general" ? "general" : "producto");
+      renderProductTable(selectedModalProduct());
     });
 
     $("returnBtn").addEventListener("click", returnMoney);
